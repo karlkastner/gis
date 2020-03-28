@@ -1,0 +1,46 @@
+% Mi 28. Okt 17:58:27 CET 2015
+% Karl Kastner, Berlin
+% determine diameter of polygon at every element
+function shp = diameter(shp)
+	% for each polygon
+	for sdx=1:length(shp)
+	XY = [rvec(shp(sdx).X); rvec(shp(sdx).Y)];
+	valid = prod(isfinite(XY));
+	n = size(XY,2);
+	valid = valid(1:n-1).*valid(2:n);
+	d = inf(n-1,1);
+	% for each line segment
+	for idx=1:n-1
+		% get normal
+		p1 = XY(:,idx);
+		p2 = XY(:,idx+1);
+		if (valid(idx))
+		% mid point
+		n1 = mean([p1,p2],2);
+		n2 = p1 + diff([p1,p2],2);
+		% determine intersection with each other line segment and minimum
+		for jdx=[1:idx-1, idx+1:n-1]
+			q1 = XY(:,jdx);
+			q2 = XY(:,jdx+1);
+			if (valid(jdx))
+			[flag, s, void, void, q] = lineintersect(n1,n2,q1,q2);
+			% TODO distinguish inside outside
+			if (s > 0 && s < 1)
+				dij = dist2(n1,q);
+				if (dij < d(idx))
+					d(idx) = dij;
+				end
+			end % if s
+			end % if valid jdx
+		end % for jdx
+		% TODO symmetrise matrix
+		% if valid idx
+	end % for idx
+	% distribute back to boundary points
+	d = [d(1); 0.5*(d(1:end-1)+d(2:end)); d(end)];
+	d(~valid) = NaN;
+	% write back
+	shp(sdx).diameter = d;
+	end % for sdx
+end % diameter
+
