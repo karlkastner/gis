@@ -1,5 +1,6 @@
 % Di 10. Nov 15:45:26 CET 2015
 % Karl Kastner, Berlin
+% function shp = translate(shp,x0,y0)
 function shp = translate(shp,x0,y0)
 	if (nargin()<3)
 		xy0 = x0;

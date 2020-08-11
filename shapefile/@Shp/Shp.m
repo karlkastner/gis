@@ -5,10 +5,11 @@ classdef Shp
 	properties
 	end % properties
 	methods (Static)	
+	    shp = generate_rectangle(x0,y0,x1,y1);
 	    [shp,fdx] = remove_leaves(shp,dmax,n);
 	    l = length(shp);
 	    shp = generate_four_colour_index(shp,thresh);
-	    [out seg_id] = flat(shp);
+	    [out seg_id] = flat(shp,separate);
 	    [a, shp] = area(shp);
 	    shp = scale(shp,scale);
 	    s = connect_network(s);
@@ -19,11 +20,13 @@ classdef Shp
 	    shp = export_geo(shp, oname, resolution, type, mode, splitflag, varargin);
 	    [X,Y,bnd] = edges(shp);
 	    shp = export_poly(shp,filename);
+	    shp =  copy_attribute(shp_,shp,ifield,ofield);
 	    shp = export_spline(shp,oname,max_chunk);
 	    shp = export_gpx_track(shp,gpxname,name);
 	    shp = line2point(shp);
 	    shp = extract_coastline(shp,lmin);
 	    shp = export_gpx(filename, latlonflag);
+	    shp = latlon2utm(shp, varargin);
 	    shp = points(shp);
 	    plot(shp,varargin);
 	    seg = segment(shp);

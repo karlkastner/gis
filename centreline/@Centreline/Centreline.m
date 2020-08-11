@@ -102,6 +102,7 @@ classdef Centreline < handle
 		end
 		
 		% constructor
+		% silently assumes, that there are at least 2 different points per segment
 		function obj = Centreline(varargin)
 			switch (length(varargin))
 			case {0}
@@ -127,11 +128,20 @@ classdef Centreline < handle
 			end
 			
 			% remove invalid points
-			% TODO, this is a qucik fix
-			fdx = isfinite(X.*Y);
+			fdx = isfinite(X) & isfinite(Y);
 			X   = X(fdx);
 			Y   = Y(fdx);
 			sid = sid(fdx);
+
+			% rebuild seg_id, due to removal of points
+			d      = find(diff(sid));
+			seg_id = [[1;d+1], [d;length(sid)]];
+
+			% sid itself also has to be rebuild, as some short segments
+			% may have been deleted
+			for idx=1:size(seg_id,1)
+				sid(seg_id(idx,1):seg_id(idx,2)) = idx;
+			end
 
 			% sort points according to index
 			% TODO assumed sorted for the time being
@@ -142,33 +152,39 @@ classdef Centreline < handle
 			% it is assumed, that the duplicates are end points only
 			% randomly perturb the duplicate coordinates
 			% as removing would cause problems
-			[void ia] = unique([X Y],'rows','stable');
-			fdx     = true(size(X));
-			fdx(ia) = false;
-			% TODO, this is a quick fix
+			if (0)
+			% TODO, this is a quick fix and makes problems depending on the coordinate is m or degree
+			[void, ia] = unique([X, Y],'rows','stable');
+			fdx        = true(size(X));
+			fdx(ia)    = false;
 			X = X + fdx.*rand(length(X),1);
 			Y = Y + fdx.*rand(length(X),1);
-		
-			% seg_id has to be rebuild, due to removal of points
-			d      = find(diff(sid));
-			seg_id = [[1;d+1] [d;length(sid)]];
-
-			% sid itself also has to be rebuild, as some short segments
-			% may have been deleted
-			for idx=1:size(seg_id,1)
-				sid(seg_id(idx,1):seg_id(idx,2)) = idx;
 			end
+
+			% move segment endpoints slightly inward to avoid dubplicate coordinates
+			% TODO the perturbed coords actually only need to be used for the nearest neighbour search
+			% TODO, no magic number
+			% TODO 
+			% make the first and last index of a segment special (replaceable)
+			% seg_id = [first point, second point, last but one point, last point]
+			p = sqrt(eps);
+			% move first point slightly towards second point
+			X(seg_id(:,1)) = (1-p)*X(seg_id(:,1)) + p*X(seg_id(:,1)+1);
+			Y(seg_id(:,1)) = (1-p)*Y(seg_id(:,1)) + p*Y(seg_id(:,1)+1);
+			% move other endpoint slightly towards last but one point
+			X(seg_id(:,2)) = (1-p)*X(seg_id(:,2)) + p*X(seg_id(:,2)-1);
+			Y(seg_id(:,2)) = (1-p)*Y(seg_id(:,2)) + p*Y(seg_id(:,2)-1);
 
 			obj.X      = X;
 			obj.Y      = Y;
-			% TODO quick fix
+			
+			% all point indices of each segment
+			% TODO why is this explicitely necessary?
 			id = cell(size(seg_id,1),1);
 			for idx=1:size(seg_id,1)
 				id{idx} = seg_id(idx,1):seg_id(idx,2);
 			end
 			obj.segment = Segment(obj, id);
-%			obj.seg    = seg;
-%			obj.seg_id = seg_id;
 		end % Centreline
 	end % methods
 end % classdef

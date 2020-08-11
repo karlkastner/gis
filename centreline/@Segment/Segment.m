@@ -62,13 +62,13 @@ classdef Segment < handle
 			obj.build_inverse_index();
 		end
 
-		function [X obj] = X(obj,idx)
+		function [X, obj] = X(obj,idx)
 			X = cvec(obj.centre.X(obj.id{idx}));
 		end
-		function [Y obj] = Y(obj,idx)
+		function [Y, obj] = Y(obj,idx)
 			Y = cvec(obj.centre.Y(obj.id{idx}));
 		end
-		function [l dx dy obj] = total_length(obj,id)
+		function [l, dx, dy, obj] = total_length(obj,id)
 			if (nargin() < 2)
 				id = 1:length(obj.id);
 			end
@@ -86,32 +86,32 @@ classdef Segment < handle
 				%l(idx) = hypot(dx,dy);
 			end
 		end
-		function [l dx dy obj] = length(obj,id)
+		function [l, dx, dy, obj] = length(obj,id)
 			X  = obj.X(id);
 			Y  = obj.Y(id);
 			dx = diff(X);
 			dy = diff(Y);
 			l  = hypot(dx,dy);
 		end
-		function [S obj] = S(obj,idx)
+		function [S, obj] = S(obj,idx)
 			ds = obj.length(idx);
 			S  = [0; cvec(cumsum(ds))];
 		end
-		function [Sc obj] = Sc(obj,idx)
+		function [Sc, obj] = Sc(obj,idx)
 			S = obj.S(idx);
 	 		Sc = 0.5*cvec(S(1:end-1) + S(2:end));
 		end
-		function [xc obj] = Xc(obj,idx)
+		function [xc, obj] = Xc(obj,idx)
 			id = obj.id{idx};
 	 		xc = 0.5*cvec(  obj.centre.X(id(1:end-1)) ...
                                       + obj.centre.X(id(2:end)));
 		end
-		function [yc obj] = Yc(obj,idx)
+		function [yc, obj] = Yc(obj,idx)
 			id = obj.id{idx};
 	 		yc = 0.5*cvec(  obj.centre.Y(id(1:end-1)) ...
                                       + obj.centre.Y(id(2:end)));
 		end
-		function [odx ody obj] = normal(obj,idx)
+		function [odx, ody, obj] = normal(obj,idx)
 			id = obj.id{idx};
 			[h dx dy] = obj.length(idx);
 %			dx = cvec(obj.centre.X(id(1:end-1))-obj.centre.X(id(2:end)));
@@ -120,7 +120,7 @@ classdef Segment < handle
 			odx = -dy.*ih;
 			ody =  dx.*ih;
 		end % normal
-		function [Xl Yl obj] = Pl(obj,idx)
+		function [Xl, Yl, obj] = Pl(obj,idx)
 			[odx ody] = obj.normal(idx);
 			id        = obj.id{idx};
 			w         = obj.centre.width(id);
@@ -129,10 +129,10 @@ classdef Segment < handle
 			Xl        = obj.Xc(idx) - 0.5*w.*odx;
 			Yl        = obj.Yc(idx) - 0.5*w.*ody;
 			if (1 == nargout)
-				Xl = [Xl Yl];
+				Xl = [Xl, Yl];
 			end
 		end
-		function [Xr Yr obj] = Pr(obj,idx)
+		function [Xr, Yr, obj] = Pr(obj,idx)
 			[odx ody] = obj.normal(idx);
 			id        = obj.id{idx};
 			w         = obj.centre.width(id);
@@ -141,7 +141,7 @@ classdef Segment < handle
 			Xr        = obj.Xc(idx) + 0.5*w.*odx;
 			Yr        = obj.Yc(idx) + 0.5*w.*ody;
 			if (1 == nargout)
-				Xr = [Xr Yr];
+				Xr = [Xr, Yr];
 			end
 		end
 		function obj = remove(obj,fdx)

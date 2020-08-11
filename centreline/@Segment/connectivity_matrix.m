@@ -1,6 +1,7 @@
 % Do 7. Jan 18:15:50 CET 2016
 % Karl Kastner, Berlin
 
+% TODO this seems broken
 function [A, A1, A2] = connectivity_matrix(obj)
 	n = obj.n;
 %	seg_id = cellfun(@(x) [x(1) x(end)], obj.id);
@@ -13,6 +14,7 @@ function [A, A1, A2] = connectivity_matrix(obj)
                          seg_id(idx,1) == seg_id(:,1) ...
                        | seg_id(idx,1) == seg_id(:,2) );
 		buf1 = [buf1; [idx*ones(length(fdx1),1), fdx1]];
+
 		% connection at other end
 		fdx2 = find( ...
                          seg_id(idx,2) == seg_id(:,1) ...
@@ -21,6 +23,7 @@ function [A, A1, A2] = connectivity_matrix(obj)
 	end
 	A1 = sparse(buf1(:,1),buf1(:,2),ones(size(buf1,1),1),n,n);
 	A2 = sparse(buf2(:,1),buf2(:,2),ones(size(buf2,1),1),n,n);
+
 	% combined conection matrix
 	A = A1 | A2;
 end % connectivity_matrix
