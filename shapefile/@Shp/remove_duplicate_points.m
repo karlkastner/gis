@@ -1,5 +1,8 @@
 % Sa 28. Nov 11:55:24 CET 2015
 % Karl Kastner, Berlin
+%
+%% remove dubplicate points from features
+%
 function shp = remove_duplicate_points(shp)
 	abstol = 1e-3;
 	f_C = fieldnames(shp);

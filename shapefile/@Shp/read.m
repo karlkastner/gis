@@ -1,6 +1,8 @@
 % Wed 25 May 12:16:46 CEST 2016
 % Karl Kastner, Berlin
-%obj = split_lines(obj)
+%
+%% read shapefile from file
+%
 function shp = read(in)
 	switch (class(in))
 	case {'char'}

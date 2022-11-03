@@ -45,6 +45,7 @@ classdef Shp
 	    plot(shp,varargin);
 	    seg = segment(shp);
 	    shp = cat(shp,separator);
+	    [cx,cy]  = centroid(shp);
 	    shp = concat(shp,shp2);
 	    shp = resample_min(shp,dS_min);
 	    shp = padd_nan(shp);

@@ -1,6 +1,8 @@
 % Di 29. Sep 10:38:59 CEST 2015
 % Karl Kastner, Berlin
-
+%
+%% split line features into single sements
+%
 function obj = split_lines(obj)
 	shp = struct();
 	n   = 0;

@@ -1,5 +1,8 @@
 % Thu 26 May 10:16:05 CEST 2016
 % Karl Kastner, Berlin
+%
+%% quick resampling of features by leaving out points
+%
 function out = skip(shp,sk)
 	out = [];
 	seg_C = Shp.segment(shp);

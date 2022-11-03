@@ -1,4 +1,7 @@
 % Thu 11 Jun 10:53:01 +08 2020
+%
+%% generate rectangular polygon
+%
 function shp = generate_rectangle(x0,y0,x1,y1)
 	shp = struct();
 	shp.Geometry = 'Polygon';

@@ -1,5 +1,8 @@
 % 2014-09-09 11:07:29.710047954 +0200
 % Karl Kastner, Berlin
+%
+% move all features into a single feature
+%
 % TODO merge with cat
 function [out, seg_id] = flat(shp,separate)
 	if (isfield(shp,'seg'))
@@ -30,18 +33,5 @@ function [out, seg_id] = flat(shp,separate)
 	out.X = X;
 	out.Y = Y;
 	out.seg = seg;
-%		% one segment only
-%		if (~isfield(shp,'seg'))
-%			% only take over valid coordinates
-%			fdx = find(isfinite(shp.X.*shp.Y));
-%			n       = sum(fdx);
-%			out.X   = X(fdx);
-%			out.Y   = 
-%			out.seg = ones(n,1);
-%			seg_id = [1 n];
-%		else
-%			warning('already flatted, inverse index seg_id not build')
-%		end
-%	end
 end % flat_shp
 

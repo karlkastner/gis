@@ -1,4 +1,7 @@
-% buffer or shrink a polygon by a fixed distance
+% 2016-11-30 10:55:03.101623770 +0100
+%
+%% buffer or shrink a polygon by a fixed distance
+%
 % TODO resolv self intersection and remove counter clockwise parts (this would also remove islands)
 function shp = buffer(shp,d)
 	seg_C = Shp.segents(shp);

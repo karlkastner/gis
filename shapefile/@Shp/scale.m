@@ -1,4 +1,7 @@
 % Wed 30 May 11:03:23 CEST 2018
+%
+% scale feature coordinates
+%
 function shp = scale(shp,s)
 	if (length(s)<2)
 		s(2)=s(1);

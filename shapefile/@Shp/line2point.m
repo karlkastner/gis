@@ -1,4 +1,7 @@
 % Wed 17 Jul 17:46:50 CEST 2019
+%
+%% convert lines to points
+%
 function shp_ = line2point(shp)
 %	X = shp.X;
 	shp_ = struct();

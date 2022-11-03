@@ -1,5 +1,7 @@
 % 2015-11-28 13:16:30.162675799 +0100
-
+%
+%% resample coordinates
+%
 function out = resample_quick(shp,h)
 	out = [];
         seg_C = Shp.segment(shp);

@@ -1,6 +1,7 @@
 % 2015-10-30 15:59:09.389253410 +0100
 % Karl Kastner, Berlin
-
+%
+%
 function shp1 = merge(shp1,shp2,dmax)
 
 	shp1 = Shp.cat(shp1,NaN);

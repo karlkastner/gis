@@ -1,11 +1,12 @@
 % Sat Mar 15 13:03:14 WIB 2014
 % Karl Kastner, Berlin
 %
+%% export geometry file undestood by SLIM
+%
 % ofile      : ouput file name
 % type       : [tri, quad]
 % resolution : resampling distance of points on the mesh boundary
 % varargin   : Mesh.Remove4Triangles
-
 %
 % TODO rename opt to gmshopt
 function export_geo(shp, oname, resolution, mode, opt)

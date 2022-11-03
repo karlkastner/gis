@@ -1,9 +1,9 @@
 % Sat Jun 28 13:56:51 WIB 2014
 % Karl Kastner, Berlin
 %
-% concatenate line segments (parts) of shp data files into one
-% same as single part to multipart in qgis
-% returns also indices into the original file
+%% concatenate line segments (parts) of shp data files into one
+%% same as single part to multipart in qgis
+%% returns also indices into the original file
 %
 function s = cat(shp,separator)
 	if (nargin() < 2)

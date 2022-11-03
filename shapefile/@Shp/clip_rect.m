@@ -1,5 +1,8 @@
 % Mi 28. Okt 10:34:26 CET 2015
 % Karl Kastner, Berlin
+%
+%% rectrangular crop of the shapefile
+%
 function out = crop(shp,xmin,ymin,xmax,ymax)
 	% TODO also crop other fields
 	k = 0;

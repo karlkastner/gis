@@ -1,6 +1,8 @@
 % Fr 27. Nov 16:03:14 CET 2015
 % make elements clock wise, except the largest element
-
+%
+%% make polygons clockwise
+%
 function shp = make_clockwise(shp)
 	area = Shp.area(shp);
 	% flip

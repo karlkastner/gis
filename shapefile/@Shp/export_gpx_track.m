@@ -1,6 +1,8 @@
 % Sun Jul 20 21:10:31 WIB 2014
 % Karl Kastner, Berlin
 
+%% export a data into a gpx track file
+
 function export_gpx_track(shp,gpxname,name)
 header = [
 '<?xml version="1.0" encoding="UTF-8"?>\n' ...

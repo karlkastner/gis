@@ -1,5 +1,8 @@
 % 2014-04-10 19:21:52.475930888 +0700
 % Karl Kastner, Berlin 
+%
+%% create a new shapefile with given geometry
+%
 % function s = create(varargin)
  function s = create(varargin)
 	%s = struct('Geometry',[],'X',[],'Y',[]);

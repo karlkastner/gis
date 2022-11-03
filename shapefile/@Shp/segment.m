@@ -1,7 +1,7 @@
 % Mi 28. Okt 09:44:35 CET 2015
 % Karl Kastner, Berlin
-
-% separate disjoint sections of polygons and lines
+%
+%% separate disjoint sections of polygons and lines
 function seg = segment(shp)
 	for idx=1:length(shp)
 		X = cvec(shp(idx).X);

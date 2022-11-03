@@ -1,5 +1,7 @@
 % Mon 11 May 11:48:05 +08 2020
-
+%
+%% copy attributes from one shapefile to the other
+%
 function shp =  copy_attribute(shp_,shp,ifield,ofield)
 	if (nargin()<4)
 		ofield = ifield;

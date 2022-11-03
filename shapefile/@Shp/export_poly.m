@@ -1,6 +1,7 @@
 % Mi 2. Dez 12:11:32 CET 2015
 % Karl Kastner, Berlin
 
+%% export poly-file understood by SLIM
 function export_poly(shp,filename)
 	fid = fopen(filename,'w');
 	if (-1 == fid)

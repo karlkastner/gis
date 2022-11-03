@@ -16,7 +16,7 @@ breaklines=true
 \setlength{\cftsubsecnumwidth}{3.5em}
 
 \title{Manual for Package:
-gis\protect\\Revision 1:3M
+gis\protect\\Revision 4M
 }
 \author{Karl K\"astner}
 %\date{}
@@ -302,14 +302,16 @@ ${}$
 \subsection{area}
 ${}$
 \begin{lstlisting}
+ area of  polygon shapes
 
 \end{lstlisting}
 \subsection{buffer}
 ${}$
 \begin{lstlisting}
+ buffer or shrink a polygon by a fixed distance
 
 \end{lstlisting}
-\subsection{cat}
+\subsection{centroid}
 ${}$
 \begin{lstlisting}
 
@@ -317,26 +319,31 @@ ${}$
 \subsection{clip}
 ${}$
 \begin{lstlisting}
+ crop input shape file to specified polygon
 
 \end{lstlisting}
 \subsection{clip\_rect}
 ${}$
 \begin{lstlisting}
+ rectrangular crop of the shapefile
 
 \end{lstlisting}
 \subsection{close\_polygon}
 ${}$
 \begin{lstlisting}
+ close polygon, i.e. make the first point identical to the last
 
 \end{lstlisting}
 \subsection{concat}
 ${}$
 \begin{lstlisting}
+ concatenate two shapefiles
 
 \end{lstlisting}
 \subsection{connect\_network}
 ${}$
 \begin{lstlisting}
+
  TODO make unique
  attach segments to 
 XY = [cvec(shp.X),shp.;
@@ -352,61 +359,73 @@ ${}$
 \subsection{copy\_attribute}
 ${}$
 \begin{lstlisting}
+ copy attributes from one shapefile to the other
 
 \end{lstlisting}
 \subsection{cp}
 ${}$
 \begin{lstlisting}
+ copy a shapefile on disk
 
 \end{lstlisting}
 \subsection{create}
 ${}$
 \begin{lstlisting}
+ create a new shapefile with given geometry
 
 \end{lstlisting}
 \subsection{curvature}
 ${}$
 \begin{lstlisting}
+ curvature of line segments
 
 \end{lstlisting}
 \subsection{cut}
 ${}$
 \begin{lstlisting}
 
+
 \end{lstlisting}
 \subsection{diameter}
 ${}$
 \begin{lstlisting}
+ determine diameter of polygon of every element
 
 \end{lstlisting}
 \subsection{edges}
 ${}$
 \begin{lstlisting}
+ edges of polygons line loops loops
 
 \end{lstlisting}
 \subsection{export\_geo}
 ${}$
 \begin{lstlisting}
+ export geometry file undestood by SLIM
 
 \end{lstlisting}
 \subsection{export\_gpx}
 ${}$
 \begin{lstlisting}
+ export data into a gpx file
 
 \end{lstlisting}
 \subsection{export\_gpx\_track}
 ${}$
 \begin{lstlisting}
+ export a data into a gpx track file
 
 \end{lstlisting}
 \subsection{export\_ldb}
 ${}$
 \begin{lstlisting}
+ export Delft3D-4 land-boundary
 
 \end{lstlisting}
 \subsection{export\_poly}
 ${}$
 \begin{lstlisting}
+ export poly-file understood by SLIM
 
 \end{lstlisting}
 \subsection{export\_sdf}
@@ -417,6 +436,7 @@ ${}$
 \subsection{export\_spline}
 ${}$
 \begin{lstlisting}
+ export splines (for D3D?)
 
 \end{lstlisting}
 \subsection{extract\_coastline}
@@ -427,6 +447,7 @@ ${}$
 \subsection{first\_point}
 ${}$
 \begin{lstlisting}
+ extract first point of all shapefile features
 
 \end{lstlisting}
 \subsection{flat}
@@ -437,11 +458,13 @@ ${}$
 \subsection{generate\_four\_colour\_index}
 ${}$
 \begin{lstlisting}
+ unique colour-indices fpr poligons
 
 \end{lstlisting}
 \subsection{generate\_rectangle}
 ${}$
 \begin{lstlisting}
+ generate rectangular polygon
 
 \end{lstlisting}
 \subsection{import\_geo}
@@ -452,51 +475,61 @@ ${}$
 \subsection{import\_poly}
 ${}$
 \begin{lstlisting}
+ import poly file
 
 \end{lstlisting}
 \subsection{inpolygon}
 ${}$
 \begin{lstlisting}
+ test if point is in any of the polygons
 
 \end{lstlisting}
 \subsection{join\_lines}
 ${}$
 \begin{lstlisting}
+ join line segments
 
 \end{lstlisting}
 \subsection{last\_point}
 ${}$
 \begin{lstlisting}
+ return last point of features
 
 \end{lstlisting}
 \subsection{latlon2utm}
 ${}$
 \begin{lstlisting}
+ convert latitude and longitude to utm
 
 \end{lstlisting}
 \subsection{length}
 ${}$
 \begin{lstlisting}
+ number of points of each feature
 
 \end{lstlisting}
 \subsection{length2}
 ${}$
 \begin{lstlisting}
+ length of line segments
 
 \end{lstlisting}
 \subsection{line2point}
 ${}$
 \begin{lstlisting}
+ convert lines to points
 
 \end{lstlisting}
 \subsection{link\_lines}
 ${}$
 \begin{lstlisting}
+ link lines with same endpoints
 
 \end{lstlisting}
 \subsection{make\_clockwise}
 ${}$
 \begin{lstlisting}
+ make polygons clockwise
 
 \end{lstlisting}
 \subsection{merge}
@@ -512,36 +545,44 @@ ${}$
 \subsection{padd\_nan}
 ${}$
 \begin{lstlisting}
+ padd NaN at end of features
 
 \end{lstlisting}
 \subsection{plot}
 ${}$
 \begin{lstlisting}
+ display the shapefile
 
 \end{lstlisting}
 \subsection{points}
 ${}$
 \begin{lstlisting}
+ returns points of the features
 
 \end{lstlisting}
 \subsection{polygon\_boundary}
 ${}$
 \begin{lstlisting}
+ 
 
 \end{lstlisting}
 \subsection{read}
 ${}$
 \begin{lstlisting}
+ read shapefile from file
 
 \end{lstlisting}
 \subsection{readZ}
 ${}$
 \begin{lstlisting}
+ read shapefile with z-data from file
+ this is a workaround, as matlab cannot read files with z-data
 
 \end{lstlisting}
 \subsection{remove\_duplicate\_points}
 ${}$
 \begin{lstlisting}
+ remove dubplicate points from features
 
 \end{lstlisting}
 \subsection{remove\_leaves}
@@ -552,41 +593,49 @@ ${}$
 \subsection{remove\_nan}
 ${}$
 \begin{lstlisting}
+ remove NaN points from features
 
 \end{lstlisting}
 \subsection{remove\_polygon\_closure}
 ${}$
 \begin{lstlisting}
+ remove last points of polygon if they are identical to the first
 
 \end{lstlisting}
 \subsection{remove\_short\_elements}
 ${}$
 \begin{lstlisting}
+ remove features with few points
 
 \end{lstlisting}
 \subsection{renumber}
 ${}$
 \begin{lstlisting}
+ generate a new index
 
 \end{lstlisting}
 \subsection{resample}
 ${}$
 \begin{lstlisting}
+ resample coordinates
 
 \end{lstlisting}
 \subsection{resample\_2}
 ${}$
 \begin{lstlisting}
+ resample coordinates
 
 \end{lstlisting}
 \subsection{resample\_min}
 ${}$
 \begin{lstlisting}
+ resample coordinates
 
 \end{lstlisting}
 \subsection{resample\_quick}
 ${}$
 \begin{lstlisting}
+ resample coordinates
 
 \end{lstlisting}
 \subsection{scale}
@@ -597,61 +646,81 @@ ${}$
 \subsection{segment}
 ${}$
 \begin{lstlisting}
+ separate disjoint sections of polygons and lines
 
 \end{lstlisting}
 \subsection{select\_for\_refinement}
 ${}$
 \begin{lstlisting}
+ select elements for refinement
 
 \end{lstlisting}
 \subsection{set\_geometry}
 ${}$
 \begin{lstlisting}
+ set feature geometry
 
 \end{lstlisting}
 \subsection{set\_resolution}
 ${}$
 \begin{lstlisting}
+ set resolution for mesh generation
+
+\end{lstlisting}
+\subsection{singlepart\_to\_multipart}
+${}$
+\begin{lstlisting}
+ concatenate line segments (parts) of shp data files into one
+ same as single part to multipart in qgis
+ returns also indices into the original file
 
 \end{lstlisting}
 \subsection{skip}
 ${}$
 \begin{lstlisting}
+ quick resampling of features by leaving out points
 
 \end{lstlisting}
 \subsection{smooth}
 ${}$
 \begin{lstlisting}
+ smooth the features
 
 \end{lstlisting}
 \subsection{split\_jump}
 ${}$
 \begin{lstlisting}
+ split features where distance between points exceeds a threshold
 
 \end{lstlisting}
 \subsection{split\_line}
 ${}$
 \begin{lstlisting}
+ split line features into single sements
 
 \end{lstlisting}
 \subsection{split\_nan}
 ${}$
 \begin{lstlisting}
+ splits shp line and polygons at NaN into two different groups
 
 \end{lstlisting}
 \subsection{swap\_hemisphere}
 ${}$
 \begin{lstlisting}
+ swap northern and southern hemisphere for UTM coordiantes
 
 \end{lstlisting}
 \subsection{translate}
 ${}$
 \begin{lstlisting}
+ translate coordinates
 
 \end{lstlisting}
 \subsection{write}
 ${}$
 \begin{lstlisting}
+ write the shapefile to disk
 
 \end{lstlisting}
 \section{shapefile}

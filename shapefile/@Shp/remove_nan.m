@@ -1,5 +1,7 @@
 % 2015-09-29 12:15:46.301811455 +0200
-
+%
+%% remove NaN points from features
+%
 function shp=remove_nan(shp)
 %	shp = obj.shp;
 	n = length(shp);

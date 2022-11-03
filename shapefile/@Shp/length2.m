@@ -1,4 +1,7 @@
 % Wed 13 Nov 15:11:02 +08 2019
+%
+%% length of line segments
+%
 function [l] = length2(shp)
 	l = zeros(length(shp),1);
 	for idx=1:length(shp)

@@ -1,6 +1,8 @@
 % Mi 28. Okt 17:58:27 CET 2015
 % Karl Kastner, Berlin
-% determine diameter of polygon at every element
+%
+%% determine diameter of polygon of every element
+%
 function shp = diameter(shp)
 	% for each polygon
 	for sdx=1:length(shp)

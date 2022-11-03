@@ -1,6 +1,7 @@
 % Sat Jun 28 17:43:35 WIB 2014
 % Karl Kastner, Berlin
-% crop input shape file to specified polygon
+%
+%% crop input shape file to specified polygon
 %	resolution = 1;
 % TODO this assumes a single polygon for clip
 % function outshp = clip(inshp, clip, invert)

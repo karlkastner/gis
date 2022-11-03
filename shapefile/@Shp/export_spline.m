@@ -1,7 +1,8 @@
 % Do 24. Sep 17:35:39 CEST 2015
 % Karl Kastner, Berlin
 
-%TODO close splines
+%% export splines (for D3D?)
+% TODO close splines
 function export_spline(shp,oname,max_chunk)
 	% NOTE: 999.999 does not round to a binary digit!!!
 	% take care that error values are not perturbed!!!

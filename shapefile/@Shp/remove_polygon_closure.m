@@ -1,3 +1,7 @@
+% 2018-05-30 09:55:07.932050874 +0200
+%
+%% remove last points of polygon if they are identical to the first
+%
 function shp = remove_polygon_closure(shp)
 	tol = sqrt(eps);
 	for idx=1:length(shp)

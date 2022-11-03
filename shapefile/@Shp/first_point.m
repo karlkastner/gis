@@ -1,4 +1,5 @@
 % Fri 12 Oct 21:36:10 CEST 2018
+%% extract first point of all shapefile features
 function shp_ = first_point(shp,d)
 	if (nargin()<2)
 		d = 1;
@@ -10,7 +11,7 @@ function shp_ = first_point(shp,d)
 	for idx=1:length(shp)
 	for f=rvec(f_C);
 		switch (f{1})
-			case {''}%'X','Y'}
+			case {''}
 				% nothing to do
 			otherwise
 				% TODO unsave if d>len

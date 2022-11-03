@@ -1,5 +1,8 @@
 % Mi 28. Okt 09:49:58 CET 2015
 % Karl Kastner, Berlin
+%
+%% resample coordinates
+%
 % TODO base element size on curvature
 % TODO skip rather than interpolate to preserve density in high curvature places
 	%  get ds -> step in ds by factor

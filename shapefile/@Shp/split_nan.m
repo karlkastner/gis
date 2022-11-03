@@ -1,5 +1,5 @@
 % Mo 26. Okt 07:44:58 CET 2015
-% splits shp line and polygons at NaN into two different groups
+%% splits shp line and polygons at NaN into two different groups
 function out = split_nan(in)
 	isz = isfield(in,'Z');
 	out = struct();

@@ -1,4 +1,7 @@
 % Mon 12 Oct 12:50:33 +08 2020
+%
+%% test if point is in any of the polygons
+%
 function in = inpolygon(shp,x0,y0)
 	shp = Shp.remove_nan(shp);
 	in = NaN;

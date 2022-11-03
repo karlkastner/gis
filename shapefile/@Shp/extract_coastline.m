@@ -13,26 +13,6 @@ function [shp,mesh] = extract_coastline(shp,lmin)
 	elem   = dT.ConnectivityList();
 	elem   = elem(inside,:);
 
-	%elem = delaunayTriangulation(P, bnd);
-%	figure(1);
-%	clf();
-%tic
-	%trimesh_fast(elem,P(:,1),P(:,2));
-%toc
-%pause
-%	trimesh(elem,P(:,1),P(:,2));
-%	trisurf(elem,P(:,1),P(:,2),'edgecolor','none');
-%	hold on;
-%	nb = length(bnd);
-%tic
-%	X = P(:,1);
-%	Y = P(:,2);
-%	plot(flat([X(bnd),NaN(nb,1)]'),flat([Y(bnd),NaN(nb,1)]'),'r');
-%	plot(X(1),Y(1),'.');
-%	plot(X(end),Y(end),'o');
-%pause
-%toc
-
 	% only keep elements that have at least one edge longer than the threshold
 	l = Geometry.tri_edge_length(X(elem),Y(elem));
 	fdx  = any(l>lmin,2);

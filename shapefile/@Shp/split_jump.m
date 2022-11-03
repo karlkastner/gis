@@ -1,4 +1,5 @@
 % So 1. Nov 16:25:44 CET 2015
+%% split features where distance between points exceeds a threshold
 function out = split_jump(in,rmax)
 	out = struct();
 	k = 0;

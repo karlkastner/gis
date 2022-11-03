@@ -1,4 +1,7 @@
 % Tue 12 May 11:46:57 +08 2020
+%
+%% convert latitude and longitude to utm
+%
 function [shp,zone] = latlon2utm(shp, varargin)
 	lon = [shp.X];
 	lat = [shp.Y];	

@@ -1,5 +1,8 @@
 % 2015-11-01 16:22:12.452279234 +0100
 % Karl Kastner, Berlin
+%
+%% display the shapefile
+%
 function plot(shp,varargin)
 	ih = ishold;	
 	geometry = [];

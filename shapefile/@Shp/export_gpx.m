@@ -1,6 +1,8 @@
  % 2014-05-24 21:49:41.188487531 +0700
 % Karl Kastner, Berlin
 
+%% export data into a gpx file
+
 % note: lowrance devices requires small letter colours or no space before colour
 
 % TODO export name (aux fields) if shp is of type points

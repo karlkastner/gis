@@ -1,6 +1,8 @@
 % 2015-10-28 21:23:48.384681075 +0100
 % Karl Kastner, Berlin
 %
+%% set resolution for mesh generation
+%
 % input:
 %	shp : polygon, resolution is set for each point of the polygon
 %       res_s : struct with default resolution parameter

@@ -1,4 +1,7 @@
 % Mon 26 Sep 19:55:27 CEST 2016
+%
+%% import poly file
+%
 function [shp, XY, edge, XYhole, C] = import_poly(filename)
 	fid = fopen(filename);
 	line_C = textread(fid, '%s', 'delimiter', '\n');

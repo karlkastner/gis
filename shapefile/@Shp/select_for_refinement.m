@@ -1,6 +1,8 @@
 % Di 3. Nov 11:45:01 CET 2015
 % Karl Kastner, Berlin
-
+%
+%% select elements for refinement
+%
 function shp = select_for_refinement(shp, Xc, Yc, R,ratio)
 	X = shp.X;
 	Y = shp.Y;

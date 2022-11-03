@@ -1,6 +1,8 @@
 % 2015-11-10 12:43:50.029202481 +0100
 % Karl Kastner, Berlin
-
+%
+%% link lines with same endpoints
+%
 % TODO do not write duplicate points ?
 function out = link_lines(shp,d_max)
 	if (nargin()<2)

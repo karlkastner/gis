@@ -1,5 +1,8 @@
 % Thu 26 May 18:00:47 CEST 2016
 % Karl Kastner, Berlin
+%
+%% close polygon, i.e. make the first point identical to the last
+%
 function out = close_polygon(shp)
 	seg_C = Shp.segment(shp);
 	out   = struct();

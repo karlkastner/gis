@@ -1,5 +1,7 @@
 % Wed 30 May 10:23:17 CEST 2018
-% edges of polygons line loops loops
+%
+%% edges of polygons line loops loops
+%
 % TODO allow-for non closure if type is lines
 function [X,Y,bnd] = edges(shp)
 	shp = Shp.split_nan(shp);

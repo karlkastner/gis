@@ -1,4 +1,7 @@
 % Thu  8 Dec 16:20:17 CET 2016
+%
+%% join line segments
+%
 function shp = join_lines(shp,dmax)
 	if (nargin() < 2)
 		dmax = sqrt(eps);

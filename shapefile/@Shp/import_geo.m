@@ -1,6 +1,8 @@
 % Di 22. Dez 11:45:13 CET 2015
 % Karl Kastner, Berlin
 %
+% import geo file
+%
 % ofile      : ouput file name
 % type       : [tri, quad]
 % resolution : resampling distance of points on the mesh boundary

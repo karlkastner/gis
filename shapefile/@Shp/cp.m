@@ -1,4 +1,7 @@
 % 2016-09-28 14:22:24.556355509 +0200
+%
+%% copy a shapefile on disk
+%
 function cp(iname,oname)
 	extension = {'shp','shx','dbf'};
 	for idx=1:length(extension)

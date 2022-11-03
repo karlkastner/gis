@@ -1,4 +1,5 @@
 % Fri 12 Oct 15:41:02 CEST 2018
+%% returns points of the features
 function shp_a = points(shp)
 	shp=Shp.remove_nan(shp);
 	X = num2cell([shp.X]);

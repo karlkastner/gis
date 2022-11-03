@@ -1,4 +1,7 @@
 % Wed 30 May 10:23:17 CEST 2018
+%
+%% 
+%
 function polygon_boundary(shp)
 	shp = Shp.split_nan(shp);
 	% TODO rename to remove_closure (also applies to line)

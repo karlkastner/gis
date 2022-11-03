@@ -1,6 +1,7 @@
 % Do 24. Sep 16:07:54 CEST 2015
 % Karl Kastner, Berlin
 
+%% export Delft3D-4 land-boundary
 function export_ldb(shp,ldbname,twoutm)
 	% read input file
 %	shp = shaperead(shpname);

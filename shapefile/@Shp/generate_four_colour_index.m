@@ -1,4 +1,7 @@
 % Fri 16 Nov 14:24:59 CET 2018
+%
+%% unique colour-indices fpr poligons
+%
 function [shp,C] = generate_four_colour_index(shp,thresh)
 	if (nargin() < 2)
 		thresh = 1;

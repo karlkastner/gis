@@ -1,5 +1,8 @@
 % Fri  2 Dec 18:34:55 CET 2016
 % Karl Kastner, Berlin
+%
+%% resample coordinates
+%
 function shp = resample_min(shp,dS_min)
 	method = 'linear';
 	seg_C = Shp.segment(shp);

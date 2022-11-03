@@ -1,3 +1,5 @@
+% 2019-11-13 08:38:40.692456336 +0100
+% from a channel network, remove channels that are only connected at one end with the netowrk
 % assumes that leaves do not connect to mid-points
 function [shp,fdx] = remove_leaves(shp,dmax,n)
 	if (nargin()<2)
