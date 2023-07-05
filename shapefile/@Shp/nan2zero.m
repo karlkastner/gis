@@ -1,4 +1,5 @@
-% Mon 12 Oct 12:50:33 +08 2020
+% 2023-05-13 15:38:03.100662838 +0200
+% Di 29. Sep 10:18:04 CEST 2015
 % Karl Kastner, Berlin
 %
 % This program is free software: you can redistribute it and/or modify
@@ -14,20 +15,17 @@
 % You should have received a copy of the GNU General Public License
 % along with this program.  If not, see <https://www.gnu.org/licenses/>.
 %
-%% test if point is in any of the polygons
-%
-%function in = inpolygon(shp,x0,y0)
-function in = inpolygon(shp,x0,y0)
-	shp = Shp.remove_nan(shp);
-	in = zeros(size(x0));
-	for idx=1:length(shp)
-		xp = shp.X;
-		yp = shp.Y;
-		flag = Geometry.inPolygon(shp(idx).X,shp(idx).Y,x0,y0);
-		in(flag) = idx;
-%		if (flag)
-%			in = idx;
-%			break;
-%		end
+%% replace not a number values with zeros, for writing to disk
+%% NAN values are not allowed according to the spec
+function shp = nan2zero(shp)
+	f_C = fieldnames(shp);
+	for field = rvec(f_C)
+		x = [shp.(field{1})];
+		if (isnumeric(x))
+			x(~isfinite(x)) = 0;
+			mydeal = @(x) deal(x{:});
+			[shp.(field{1})] = mydeal(num2cell(x));
+		end
 	end
 end
+

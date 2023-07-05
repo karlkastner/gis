@@ -16,7 +16,7 @@ breaklines=true
 \setlength{\cftsubsecnumwidth}{3.5em}
 
 \title{Manual for Package:
-gis\protect\\Revision 4M
+gis\protect\\Revision 5M
 }
 \author{Karl K\"astner}
 %\date{}
@@ -31,6 +31,31 @@ gis\protect\\Revision 4M
 % abstract
 
 
+\section{@GeoImg}
+\subsection{GeoImg}
+${}$
+\begin{lstlisting}
+ loading, manipulation and writing of geospacial images with world file
+
+\end{lstlisting}
+\subsection{crop}
+${}$
+\begin{lstlisting}
+ cropt the image and modify the pgw accordingly
+
+\end{lstlisting}
+\subsection{read}
+${}$
+\begin{lstlisting}
+ read geospatial image and pgw from disk and
+
+\end{lstlisting}
+\subsection{write}
+${}$
+\begin{lstlisting}
+ write geospatial image and pgw to disk
+
+\end{lstlisting}
 \section{gis}
 \subsection{GPX}
 ${}$
@@ -297,6 +322,7 @@ ${}$
 \subsection{Shp}
 ${}$
 \begin{lstlisting}
+ shape file processing
 
 \end{lstlisting}
 \subsection{area}
@@ -542,6 +568,13 @@ ${}$
 \begin{lstlisting}
 
 \end{lstlisting}
+\subsection{nan2zero}
+${}$
+\begin{lstlisting}
+ replace not a number values with zeros, for writing to disk
+ NAN values are not allowed according to the spec
+
+\end{lstlisting}
 \subsection{padd\_nan}
 ${}$
 \begin{lstlisting}
@@ -577,6 +610,12 @@ ${}$
 \begin{lstlisting}
  read shapefile with z-data from file
  this is a workaround, as matlab cannot read files with z-data
+
+\end{lstlisting}
+\subsection{reassign\_id}
+${}$
+\begin{lstlisting}
+ assign a unique identifier to each feature
 
 \end{lstlisting}
 \subsection{remove\_duplicate\_points}

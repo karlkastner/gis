@@ -1,4 +1,4 @@
-% Mon 12 Oct 12:50:33 +08 2020
+% 2023-06-16 10:12:22.358502904 +0200
 % Karl Kastner, Berlin
 %
 % This program is free software: you can redistribute it and/or modify
@@ -14,20 +14,10 @@
 % You should have received a copy of the GNU General Public License
 % along with this program.  If not, see <https://www.gnu.org/licenses/>.
 %
-%% test if point is in any of the polygons
-%
-%function in = inpolygon(shp,x0,y0)
-function in = inpolygon(shp,x0,y0)
-	shp = Shp.remove_nan(shp);
-	in = zeros(size(x0));
+%% assign a unique identifier to each feature
+function shp = reassign_id(shp)
 	for idx=1:length(shp)
-		xp = shp.X;
-		yp = shp.Y;
-		flag = Geometry.inPolygon(shp(idx).X,shp(idx).Y,x0,y0);
-		in(flag) = idx;
-%		if (flag)
-%			in = idx;
-%			break;
-%		end
+		shp(idx).id = (idx-1);
 	end
 end
+

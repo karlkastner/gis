@@ -13,12 +13,14 @@
 % 
 % You should have received a copy of the GNU General Public License
 % along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
+%
+%% shape file processing
 classdef Shp
 	properties
 	end % properties
 	methods (Static)	
 	    in = inpolygon(shp,x0,y0);
+	    shp = nan2zero(shp);
 	    shp = generate_rectangle(x0,y0,x1,y1);
 	    [shp,fdx] = remove_leaves(shp,dmax,n);
 	    l = length(shp);
@@ -86,6 +88,7 @@ classdef Shp
 	    shp = split_nan(in);
 	    shp = swap_hemisphere(shp);
 	    shp = translate(shp,x0,y0);
+	    shp = reassign_id(shp);
 	    write(shp,filename);
 	end % methods (STATIC)
 	methods
