@@ -16,11 +16,13 @@
 %
 %% read geospatial image and pgw from disk and
 function obj = read(obj,filename)
+	obj.info = imfinfo(filename);
+
 	[obj.img, obj.map, obj.alpha] = imread(filename);
 	pgwname = [filename(1:end-4),'.pgw'];
 	% Try to load pgw from file
 	try 
-	obj.pgw = csvread(pgwname);
+		obj.pgw = csvread(pgwname);
 	catch e
 		disp('Unable to read pgw file, assuming pixel size of 1 m x 1 m')
 		obj.pgw = [1,0,1,0,0,0]';

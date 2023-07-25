@@ -22,6 +22,7 @@ classdef GeoImg < handle
 		map
 		alpha
 		pgw	
+		info
 	end
 	methods
 	% A    D  B   -E C F
