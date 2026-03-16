@@ -20,11 +20,14 @@ function obj = read(obj,filename)
 
 	[obj.img, obj.map, obj.alpha] = imread(filename);
 	pgwname = [filename(1:end-4),'.pgw'];
+	wldname = [filename(1:end-4),'.wld'];
 	% Try to load pgw from file
-	try 
+	if (exist(pgwname,'file'))
 		obj.pgw = csvread(pgwname);
-	catch e
-		disp('Unable to read pgw file, assuming pixel size of 1 m x 1 m')
+	elseif (exist(wldname,'file'))
+		obj.pgw = csvread(wldname);
+	else
+		disp('Unable to read pgw or wld file, assuming pixel size of 1 m x 1 m')
 		obj.pgw = [1,0,1,0,0,0]';
 	end
 end

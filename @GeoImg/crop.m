@@ -14,8 +14,10 @@
 %  You should have received a copy of the GNU General Public License
 %  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 %
+%% function obj2 = geoimg_crop(obj,i0,j0,h,w)
+%%
 %% cropt the image and modify the pgw accordingly
-function obj2 = geoimg_crop(obj,i0,j0,h,w)    
+function obj2 = geoimg_crop(obj,i0,j0,h,w)
 	obj2 = GeoImg();
 	pgw = obj.pgw;
 	obj2.img = obj.img(i0+(0:h-1),j0+(0:w-1),:);

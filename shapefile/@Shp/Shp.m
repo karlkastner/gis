@@ -19,6 +19,7 @@ classdef Shp
 	properties
 	end % properties
 	methods (Static)	
+	    shp = assign_field(shp,fieldname,x);
 	    in = inpolygon(shp,x0,y0);
 	    shp = nan2zero(shp);
 	    shp = generate_rectangle(x0,y0,x1,y1);
@@ -92,10 +93,14 @@ classdef Shp
 	    write(shp,filename);
 	end % methods (STATIC)
 	methods
-	    function shp = Shp(shp)
-		if (isstr(shp))
-			shp = Shp.read(shp);
+	    function shp = Shp(arg)
+		if (nargin()>0)
+		if (isstr(arg))
+			shp = Shp.read(arg);
+		elseif (isnumeric(arg))
+			shp = repmat(Shp(),arg,1);
 		end
+		end % nargin>0
             end % constructor
 	end % methods
 end % class SHP

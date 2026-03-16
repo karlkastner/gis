@@ -40,6 +40,7 @@ classdef GeoImg < handle
 	function xy0 = xy0(obj)
 		xy0 = obj.pgw(5:6);
 	end
+	% these are the rotated coordiantes (referenced to the corners of the box)
 	% TODO rotation
 	function x = x(obj)
 		xy0 = obj.xy0;
